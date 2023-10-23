@@ -1,22 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CursoController;
+use App\Http\Controllers\AulaController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::get('/',[CategoriaController::class,'index'])->name('index');
 
-Route::get('/', function () {
-    return view('index');
-});
+//visualizar e cadastrar a categoria
+Route::get('/cadcategoria',[CategoriaController::class,'mostrarFormCat'])->name("form-cadastro-categoria");
+Route::post('/cadcategoria',[CategoriaController::class,'cadastroCat'])->name("cadastro-categoria");
 
-Route::get('/cadastrocategoria', function () {
-    return view('cad_categoria');
-});
+//visualizar e cadastrar curso
+Route::get('/cadcurso',[CursoController::class,'mostrarFormCurso'])->name("form-cadastro-curso");
+Route::post('/cadcurso',[CursoController::class,'cadastroCurso'])->name("cadastro-curso");
+
+//visualizar e cadastrar aula
+Route::get('/cadaula',[AulaController::class,'mostrarFormAula'])->name("form-cadastro-aula");
+Route::post('/cadaula',[AulaController::class,'cadastroAula'])->name("cadastro-aula");
