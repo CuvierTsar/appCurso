@@ -8,7 +8,7 @@
       <div class="row align-items-center">
         <div class="col-md-6">
           <div class="title d-flex align-items-center flex-wrap">
-            <h2 class="mr-40">Cadastrar Curso</h2>
+            <h2 class="mr-40">Alterar Aula</h2>
           </div>
         </div>
         <!-- Invoice Wrapper Start -->
@@ -17,40 +17,30 @@
             <div class="col-10 ">
               <div class="invoice-card card-style mb-30">
                 <div class="card-style mb-30 ">
-                  <h6 class="mb-25 fs-4" >Digite o nome do curso</h6>
-                  <form method="post" action="{{route('cadastro-curso')}}">
+                  <h6 class="mb-25 fs-4" >Digite o nome da categoria de curso que deseja alterar</h6>
+                  <form method="post" action="{{route('alterar-banco-aula',$registrosAula->id)}}">
+                    @method('put')
                     @csrf
-                    <div class="input-style-1 fs-4 ">
-                    <label class="fs-4">Código da Categoria</label>
+                  <div class="input-style-1 fs-4 ">
+                    <label class="fs-4">Código do Curso</label>
                     
-                      <input type="text" name="idcategoria" placeholder="1245" />
+                      <input type="text" name="idcurso" placeholder="{{registrosAula->idcurso}}" />
                     
                   </div>
                   <div class="input-style-1 fs-4 ">
-                    <label class="fs-4">Curso</label>
+                    <label class="fs-4">Título da Aula</label>
                     
-                      <input type="text" name="nomecurso" placeholder="PHP - Laravel" />
+                      <input type="text" name="tituloaula" placeholder="{{registrosAula->tituloaula}}" />
                     
                   </div>
-
                   <div class="input-style-1 fs-4 ">
-                    <label class="fs-4">Carga Horária</label>
+                    <label class="fs-4">URL do Vídeo da aula</label>
                     
-                      <input type="text" name="cargahoraria" placeholder="20 Horas" />
-                    
-                  </div>
-
-                  
-
-                  <div class="input-style-1 fs-4 ">
-                    <label class="fs-4">Preço</label>
-                    
-                      <input type="text" name="valor" placeholder="R$ 256,23" />
+                      <input type="text" name="urlaula" placeholder="{{registrosAula->urlaula}}" />
                     
                   </div>
-                  
                   <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-3">Salvar</button>
+                    <button type="submit" class="btn btn-primary mb-3">Alterar</button>
                   
                   </div>
                   </form>
